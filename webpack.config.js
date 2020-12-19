@@ -13,8 +13,8 @@ const jsLoaders = () => {
     {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env'],
-      },
+        presets: ['@babel/preset-env']
+      }
     },
   ]
   if (isDev) {
@@ -40,6 +40,7 @@ module.exports = {
   },
   devtool: isDev ? 'source-map' : false,
   devServer: {
+    contentBase: path.join(__dirname, 'src'),
     port: 3000,
     hot: isDev,
   },
@@ -78,7 +79,7 @@ module.exports = {
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
-        use: jsLoaders(),
+        use: jsLoaders()
       },
     ],
   },
