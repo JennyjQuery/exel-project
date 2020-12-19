@@ -1,2 +1,2 @@
-import './module'
-import './scss/index.scss'
+import './module';
+import './scss/index.scss';
