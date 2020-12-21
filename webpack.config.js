@@ -40,9 +40,10 @@ module.exports = {
   },
   devtool: isDev ? 'source-map' : false,
   devServer: {
-    contentBase: path.join(__dirname, 'src'),
     port: 3000,
-    hot: isDev,
+    contentBase: './dist',
+    inline: true,
+    hot: true,
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -79,7 +80,10 @@ module.exports = {
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
-        use: jsLoaders()
+        use: {loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }}
       },
     ],
   },
