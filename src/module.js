@@ -1,2 +1,2 @@
 console.log('модуль js');
-console.log('я работаю');
+console.log('я jработаю');
