@@ -21,9 +21,5 @@ export class Excel {
   render() {
     this.$el.append(this.getRoot());
     this.components.forEach(component => component.init());
-    setTimeout(()=>{
-      console.log('Время отписываться!')
-      this.components.forEach(component => component.destroy());
-    }, 5000)
   }
 }
