@@ -33,8 +33,29 @@ class Dom {
     } else this.$el.appendChild(node);
     return this
   }
-}
+  get data() {
+    return this.$el.dataset
+  }
+  closest(selector) {
+    return $(this.$el.closest(selector))
+  }
+  selectChild(selector) {
+    return $(this.$el.querySelector(selector))
+  }
+  getCoords() {
+    return this.$el.getBoundingClientRect()
+  }
+  clearCss(styles = []) {
+    styles.forEach(style => this.$el.style.removeProperty(style))
+  }
 
+  css(styles = {}) {
+    Object.keys(styles).forEach(key => {
+      this.$el.style[key] = styles[key]
+    });
+    return this.$el
+  }
+}
 
 export function $(selector) {
   return new Dom(selector)
