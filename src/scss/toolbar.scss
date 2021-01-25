@@ -12,6 +12,9 @@
   display: flex;
 
   .button{
-    @include button(green)
+    @include button(green);
+    i{
+      pointer-events: none;
+    }
   }
 }
