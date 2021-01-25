@@ -12,7 +12,7 @@ class Dom {
     return this.$el.outerHTML.trim()
   }
   text(text) {
-    if (typeof text === 'string') {
+    if (typeof text === 'string' || typeof text === 'number') {
       this.$el.textContent = text;
       return this
     }
@@ -67,6 +67,9 @@ class Dom {
   find(selector) {
     return $(this.$el.querySelector(selector))
   }
+  findAll(selector) {
+    return $(this.$el.querySelectorAll(selector))
+  }
   addClass(className) {
     this.$el.classList.add(className);
     return this
@@ -74,6 +77,13 @@ class Dom {
   focus() {
     this.$el.focus();
     return this
+  }
+  attr(name, value) {
+    if (value) {
+      this.$el.setAttribute(name, value);
+      return this
+    }
+    return this.$el.getAttribute(name)
   }
   setCaret() {
     const range = document.createRange();
@@ -98,6 +108,12 @@ class Dom {
       this.$el.style[key] = styles[key]
     });
     return this.$el
+  }
+  getStyles(styles = []) {
+    return styles.reduce((res, style) => {
+      res[style] = this.$el.style[style];
+      return res
+    }, {})
   }
 }
 

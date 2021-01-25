@@ -4,7 +4,9 @@ export class TableSelection {
     this.group = [];
     this.selectCell = null;
   }
-
+  get selectedIds() {
+    return this.group.map($el => $el.data.id)
+  }
   select($el) {
     this.clearSelect();
     this.group.push($el);
@@ -23,6 +25,9 @@ export class TableSelection {
     this.group.forEach($cell => {
       $cell.addClass(TableSelection.className);
     })
+  }
+  applyStyle(style) {
+    this.group.forEach($el => $el.css(style))
   }
 /*  changePosition(direction) {
     let {row, col} = this.selectCell.id(true);
