@@ -8,7 +8,7 @@ import {rootReducer} from '@/redux/rootReducer';
 import {debounce, storage} from '@/core/utils'
 import {normalizeInitialState} from '@/redux/initialState'
 //  import {createStore} from '@core/createStore';
-import {Store} from '@core/Store';
+import {Store} from '@core/store/Store';
 
 function storageName(param) {
   return 'excel:' + param
