@@ -1,6 +1,6 @@
 export class Page {
   constructor(params, time) {
-    this.params = params;
+    this.params = params || Date.now().toString();
     this.time = time
   }
 
