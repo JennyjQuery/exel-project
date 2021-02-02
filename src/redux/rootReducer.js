@@ -4,7 +4,7 @@ import {
   CHANGE_STYLES,
   APPLY_STYLE,
   CHANGE_TABLE_NAME,
-  GET_TABLE_NAME
+  SET_OPENING_TIME
 } from '@/redux/types'
 
 export function rootReducer(state, action) {
@@ -39,6 +39,12 @@ export function rootReducer(state, action) {
       return {
         ...state,
         [field]: action.data
+      };
+    case SET_OPENING_TIME:
+      field = 'openingDate';
+      return {
+        ...state,
+        [field]: new Date().toJSON()
       };
     default: return state
   }

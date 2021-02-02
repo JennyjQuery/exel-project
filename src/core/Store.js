@@ -22,15 +22,15 @@ export function createStore(rootReducer, initialState = {}) {
 }*/
 export class Store {
   constructor(rootReducer, initialState = {}) {
-    this.listeners = [];
     this.rootReducer = rootReducer;
+    this.listeners = [];
     this.state = this.rootReducer({...initialState}, {type: '__INIT__'})
   }
   subscribe(fn) {
     this.listeners.push(fn);
     return {
-      unsubscribe() {
-        this.listeners = this.listeners.filter(l => l !== fn)
+      unsubscribe: () => {
+        this.listeners = this.listeners.filter(l => l !== fn);
       }
     }
   }

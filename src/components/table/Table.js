@@ -104,7 +104,6 @@ export class Table extends ExcelComponent {
     }));
   }
   onInput(e) {
-    // this.$emit('table:input', $(e.target).text())
     this.updateTextInStore($(e.target).text())
   }
 }
