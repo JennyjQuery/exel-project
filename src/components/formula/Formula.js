@@ -23,12 +23,6 @@ export class Formula extends ExcelComponent {
     this.$on('table:select', $cell => {
       this.$formula.text($cell.data.value)
     });
-    // this.$on('table:input', text => {
-    //   this.$formula.text(text)
-    // });
-    // this.$subscribe(state => {
-    //   this.$formula.text(state.currentText)
-    // })
   }
 
   storeChanged({currentText}) {
@@ -48,8 +42,5 @@ export class Formula extends ExcelComponent {
   onInput(e) {
     const v = $(e.target).text()
     this.$emit('formula:input', v)
-  }
-  onClick(e) {
-    console.log(this.$root);
   }
 }

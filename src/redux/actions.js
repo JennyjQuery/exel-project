@@ -3,7 +3,8 @@ import {
   CHANGE_STYLES,
   TABLE_RESIZE,
   APPLY_STYLE,
-  CHANGE_TABLE_NAME
+  CHANGE_TABLE_NAME,
+  SET_OPENING_TIME
 } from '@/redux/types';
 
 export function tableResize(data) {
@@ -36,4 +37,9 @@ export function changeTableName(data) {
     type: CHANGE_TABLE_NAME,
     data
   };
+}
+export function setOpeningTime() {
+  return {
+    type: SET_OPENING_TIME
+  }
 }

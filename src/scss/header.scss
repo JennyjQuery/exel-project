@@ -34,5 +34,7 @@
   & .button {
     @include button(red);
   }
-
+  & .button i {
+    pointer-events: none;
+  }
 }
